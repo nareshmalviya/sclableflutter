@@ -14,6 +14,7 @@ class UserCubit extends Cubit<UserState> {
     try {
       final users = await apiService.fetchUsers();
       emit(UserLoaded(users));
+      // do this shouldUpdateUI.value = true; if we want immediate UI update
     } catch (e) {
       emit(UserError(e.toString()));
     }
